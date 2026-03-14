@@ -2,6 +2,16 @@
 
 class Program
 {
+    static string MoveToString(int move)
+    {
+        return move switch
+        {
+            1 => "Kamień",
+            2 => "Papier",
+            3 => "Nożyce",
+            _ => "?"
+        };
+    }
     static void Main()
     {
         Random rand = new Random();
@@ -21,17 +31,17 @@ class Program
             Console.Write("Twój wybór: ");
 
             string input = Console.ReadLine();
-
+            
             if (!int.TryParse(input, out int player))
             {
                 Console.WriteLine("Niepoprawny input. Wpisz liczbę.");
                 Console.WriteLine();
                 continue;
             }
-
             if (player == 0)
                 break;
-
+            
+            Console.WriteLine($"\rTwój wybór: {player} → {MoveToString(player)}");
             if (player < 1 || player > 3)
             {
                 Console.WriteLine("Niepoprawny wybór.");
@@ -41,7 +51,7 @@ class Program
 
             int computer = rand.Next(1, 4);
 
-            Console.WriteLine("Komputer: " + computer);
+            Console.WriteLine("Komputer: " + MoveToString(computer));
 
             rounds++;
 
