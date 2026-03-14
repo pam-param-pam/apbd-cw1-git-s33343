@@ -27,4 +27,8 @@ public class Utils {
 
         return max;
     }
+
+    public static int CalculateMin(int[] values) {
+        return 0;
+    }
 }
