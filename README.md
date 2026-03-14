@@ -1,0 +1,1 @@
+Uga buga jakas zmiana
