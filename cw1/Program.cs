@@ -20,10 +20,24 @@ class Program
             Console.WriteLine("0 - Wyjście");
             Console.Write("Twój wybór: ");
 
-            int player = int.Parse(Console.ReadLine());
+            string input = Console.ReadLine();
+
+            if (!int.TryParse(input, out int player))
+            {
+                Console.WriteLine("Niepoprawny input. Wpisz liczbę.");
+                Console.WriteLine();
+                continue;
+            }
 
             if (player == 0)
                 break;
+
+            if (player < 1 || player > 3)
+            {
+                Console.WriteLine("Niepoprawny wybór.");
+                Console.WriteLine();
+                continue;
+            }
 
             int computer = rand.Next(1, 4);
 
