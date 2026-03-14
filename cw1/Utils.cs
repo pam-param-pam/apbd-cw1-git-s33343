@@ -1,0 +1,16 @@
+namespace cw1;
+
+public class Utils {
+    public static double CalculateAverage(int[] values) {
+        if (values == null || values.Length == 0)
+            throw new ArgumentException("Array cannot be null or empty");
+
+        int sum = 0;
+
+        foreach (int v in values) {
+            sum += v;
+        }
+
+        return (double)sum / values.Length;
+    }
+}
