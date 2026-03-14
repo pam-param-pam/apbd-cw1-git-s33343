@@ -1,9 +1,13 @@
 namespace cw1;
 
 public class Utils {
-    public static double CalculateAverage(int[] values) {
+    private static void ThrowIfEmpty<T>(T[] values) {
         if (values == null || values.Length == 0)
             throw new ArgumentException("Array cannot be null or empty");
+    }
+    
+    public static double CalculateAverage(int[] values) {
+        ThrowIfEmpty(values);
 
         int sum = 0;
 
@@ -15,8 +19,7 @@ public class Utils {
     }
 
     public static int CalculateMax(int[] values) {
-        if (values == null || values.Length == 0)
-            throw new ArgumentException("Array cannot be null or empty");
+        ThrowIfEmpty(values);
 
         int max = values[0];
 
@@ -29,9 +32,8 @@ public class Utils {
     }
 
     public static int CalculateMin(int[] values) {
-        if (values == null || values.Length == 0)
-            throw new ArgumentException("Array cannot be null or empty");
-        
+        ThrowIfEmpty(values);
+
         int min = values[0];
 
         foreach (int v in values)
