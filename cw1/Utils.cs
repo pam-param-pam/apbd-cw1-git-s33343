@@ -1,6 +1,7 @@
 namespace cw1;
 
 public class Utils {
+
     private static void ThrowIfEmpty<T>(T[] values) {
         if (values == null || values.Length == 0)
             throw new ArgumentException("Array cannot be null or empty");
